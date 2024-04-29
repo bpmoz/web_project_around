@@ -6,4 +6,4 @@ También se utilizo conceptos basicos de Javascript para hacer que la ventana de
 
 En este proyecto utiliza la tipografía Inter que fue descargada en la carpeta vendor e importada al proyecto con el archivo css fonts.css, adicional el proyecto responde a 3 tipos de resoluciones gracias al uso de Media queries para tamaños de pantalla de 1280px y 320px.
 
-link git hub pages: https://bpmoz.github.io/web_project_homeland/
+link git hub pages: https://bpmoz.github.io/web_project_around/

@@ -73,3 +73,39 @@
 
   color: #000000;
 }
+
+@media screen and (max-width: 950px) {
+  .popup__open {
+    top: 30%;
+    left: 20%;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popup__open {
+    max-width: 250px;
+    top: 30%;
+    left: 10%;
+    position: absolute;
+  }
+
+  .popup__form {
+    max-width: 250px;
+    position: fixed;
+  }
+
+  .popup__input {
+    max-width: 150px;
+  }
+
+  .popup__btn {
+    max-width: 150px;
+  }
+
+  .popup__close-icon {
+    width: 25px;
+    top: -23x;
+    right: -20px;
+  }
+}

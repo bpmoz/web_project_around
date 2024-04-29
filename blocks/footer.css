@@ -11,6 +11,12 @@
   margin: auto;
 }
 
+@media screen and (max-width: 950px) {
+  .footer__copyright {
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .footer__copyright {
     text-align: center;
