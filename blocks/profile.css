@@ -85,13 +85,13 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 720px) {
   .profile {
     max-width: 300px;
     display: block;
-
     padding-bottom: 150px;
     padding-top: 20px;
+    margin: auto;
   }
 
   .profile__info {
@@ -111,6 +111,10 @@
     margin: center;
     text-align: center;
     padding-bottom: 0;
+  }
+
+  .profile__info-role {
+    font-size: 14px;
   }
 
   .profile__button {
