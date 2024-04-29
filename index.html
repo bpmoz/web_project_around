@@ -13,5 +13,189 @@
     <header class="header">
       <img src="/images/logo.svg" alt="page logo" class="header__logo" />
     </header>
+    <main class="content">
+      <section class="profile">
+        <img
+          src="/images/Avatar.png"
+          alt="profile picture"
+          class="profile__image"
+        />
+        <div class="profile__info">
+          <h2 class="profile__info-name" id="profile-name">Jacques Cousteau</h2>
+          <img
+            src="/images/Edit Button.svg"
+            alt="edit botton for profile"
+            class="profile__info-edit"
+          />
+          <p class="profile__info-role" id="profile-role">Explorador</p>
+        </div>
+        <img
+          src="/images/Add Button.png"
+          alt="add button"
+          class="profile__button"
+        />
+      </section>
+      <section class="elements">
+        <div class="element">
+          <img
+            src="/images/yosemite.jpeg"
+            alt="Yosemite valley picture"
+            class="element__image"
+          />
+          <div class="element__info">
+            <h3 class="element__title">Valle de Yosemite</h3>
+            <img
+              src="/images/Group.svg"
+              alt="like botton"
+              class="element__title-button"
+            />
+          </div>
+          <img
+            src="/images/Trash.svg"
+            alt="trash icon"
+            class="element__button"
+          />
+        </div>
+        <div class="element">
+          <img
+            src="/images/lago.jpeg"
+            alt="Yosemite valley picture"
+            class="element__image"
+          />
+          <div class="element__info">
+            <h3 class="element__title">Lago Louise</h3>
+            <img
+              src="/images/Group.svg"
+              alt="like botton"
+              class="element__title-button"
+            />
+          </div>
+
+          <img
+            src="/images/Trash.svg"
+            alt="trash icon"
+            class="element__button"
+          />
+        </div>
+
+        <div class="element">
+          <img
+            src="/images/mountain.jpeg"
+            alt="mountain picture"
+            class="element__image"
+          />
+          <div class="element__info">
+            <h3 class="element__title">Montañas Calvas</h3>
+            <img
+              src="/images/Group.svg"
+              alt="like botton"
+              class="element__title-button"
+            />
+          </div>
+
+          <img
+            src="/images/Trash.svg"
+            alt="trash icon"
+            class="element__button"
+          />
+        </div>
+        <div class="element">
+          <img
+            src="/images/sandiego.jpg"
+            alt="La jolla beach picture"
+            class="element__image"
+          />
+          <div class="element__info">
+            <h3 class="element__title">La Jolla</h3>
+            <img
+              src="/images/Group.svg"
+              alt="like botton"
+              class="element__title-button"
+            />
+          </div>
+
+          <img
+            src="/images/Trash.svg"
+            alt="trash icon"
+            class="element__button"
+          />
+        </div>
+
+        <div class="element">
+          <img
+            src="/images/grandcayon.jpg"
+            alt="Gran cañon picture"
+            class="element__image"
+          />
+          <div class="element__info">
+            <h3 class="element__title">El Gran Cañon</h3>
+            <img
+              src="/images/Group.svg"
+              alt="like botton"
+              class="element__title-button"
+            />
+          </div>
+
+          <img
+            src="/images/Trash.svg"
+            alt="trash icon"
+            class="element__button"
+          />
+        </div>
+
+        <div class="element">
+          <img
+            src="/images/latemar.jpg"
+            alt="Latemar picture"
+            class="element__image"
+          />
+          <div class="element__info">
+            <h3 class="element__title">Latemar</h3>
+            <img
+              src="/images/Group.svg"
+              alt="like botton"
+              class="element__title-button"
+            />
+          </div>
+
+          <img
+            src="/images/Trash.svg"
+            alt="trash icon"
+            class="element__button"
+          />
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&#169;2024. Brian Pineda</p>
+    </footer>
+    <!-- Ventana emergente de "Editor perfil" -->
+    <div class="popup" id="popup-profile">
+      <form id="profile-form" class="popup__form">
+        <img
+          src="/images/Close Icon.png"
+          alt="Aquí hay un icono"
+          class="popup__close-icon"
+        />
+        <h2 class="popup__header">Editar perfil</h2>
+        <input
+          type="text"
+          value=""
+          placeholder="Nombre"
+          class="popup__input"
+          id="input-name"
+        />
+
+        <input
+          type="text"
+          value=""
+          placeholder="Profesión"
+          class="popup__input"
+          id="input-role"
+        />
+        <button type="submit" class="popup__btn">Guardar</button>
+      </form>
+    </div>
+    <script src="scripts/index.js"></script>
   </body>
 </html>
