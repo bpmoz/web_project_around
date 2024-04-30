@@ -9,6 +9,8 @@ const profileCloseButton = document.querySelector(".popup__close-icon");
 
 function handleOpenProfile(evt) {
   popupProfile.classList.add("popup__open");
+  inputName.value = profileName.textContent;
+  inputRole.value = profileRole.textContent;
 }
 
 function handleCloseProfile() {
@@ -20,8 +22,8 @@ profileCloseButton.addEventListener("click", handleCloseProfile);
 profileButton.addEventListener("click", handleOpenProfile);
 
 formProfile.addEventListener("submit", function (evt) {
+  evt.preventDefault();
   profileName.textContent = inputName.value;
   profileRole.textContent = inputRole.value;
-  evt.preventDefault();
   handleCloseProfile();
 });
