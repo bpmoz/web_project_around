@@ -66,7 +66,6 @@ function cardGenerator(name, link) {
     popupImage.classList.add("popup__image-open");
     const popupPhoto = popupImage.querySelector(".popup__image-full");
     const popuptitle = popupImage.querySelector(".popup__image-title");
-
     popupPhoto.src = link;
     popuptitle.textContent = name;
   }
