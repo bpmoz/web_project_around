@@ -162,7 +162,7 @@
 
   .popup__image {
     max-width: 250px;
-    position: absolute;
+    position: fixed;
   }
 
   .popup__image-container {
