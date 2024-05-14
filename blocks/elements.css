@@ -21,9 +21,12 @@
   overflow: hidden;
 }
 .element__image {
-  height: 282px;
-  width: 282px;
+  min-height: 282px;
+  min-width: 282px;
+  max-height: 282px;
+  max-width: 282px;
   object-fit: cover;
+  background-color: #2a2c2f;
 }
 
 .element__info {
@@ -43,6 +46,9 @@
   line-height: 29.05px;
   color: black;
   margin: 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .element__title-button {
@@ -58,7 +64,11 @@
 }
 
 .element__title-button:active {
-  background-color: #000;
+  background-image: url("/images/Union.png");
+}
+
+.element__title-button-active {
+  background-image: url("/images/Union.png");
 }
 
 .element__button {
@@ -66,6 +76,7 @@
   z-index: 2;
   right: 18px;
   bottom: 315px;
+  max-width: 20px;
 }
 
 .element__button:hover {
