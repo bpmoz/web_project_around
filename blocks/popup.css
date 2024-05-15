@@ -35,7 +35,7 @@
   object-fit: cover;
 }
 
-.pop__overlay {
+.popup__overlay {
   position: absolute;
   width: 10000px;
   height: 10000px;
