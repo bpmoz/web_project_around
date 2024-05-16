@@ -68,6 +68,7 @@ function cardGenerator(name, link) {
     const popuptitle = popupImage.querySelector(".popup__image-title");
     popupPhoto.src = link;
     popuptitle.textContent = name;
+    popupPhoto.alt = name;
   }
 
   btnDelete.addEventListener("click", handleRemoveCard);

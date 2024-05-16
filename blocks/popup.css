@@ -2,7 +2,7 @@
   display: none;
   position: absolute;
   top: 20%;
-  left: 40%;
+  left: 39%;
   z-index: 1000;
 }
 
@@ -15,19 +15,19 @@
 .popup__image {
   display: none;
   position: fixed;
-  top: 25%;
-  left: 45%;
   transform: translate(-50%, -50%);
   z-index: 1000;
 }
 .popup__image-open {
+  position: fixed;
+  top: 5%;
   display: flex;
+  justify-content: flex-start;
   max-width: 200px;
 }
 
 .popup__image-full {
   position: relative;
-  top: 10%;
   min-width: 433px;
   min-height: 540px;
   max-width: 433px;
@@ -166,6 +166,13 @@
     position: fixed;
   }
 
+  .popup__image-open {
+    display: flex;
+    justify-content: center;
+    top: 10%;
+    left: 50%;
+  }
+
   .popup__image-container {
     display: flex;
     justify-self: center;
@@ -174,9 +181,8 @@
   }
 
   .popup__image-title {
-    position: absolute;
-    top: 375px;
-    right: 125px;
+    position: relative;
+    left: -15%;
     margin: 0;
     font-size: 14px;
     width: 90px;
@@ -194,7 +200,8 @@
 
   .popup__close-icon-image {
     position: relative;
-    left: 70%;
+    left: 30%;
+    top: 7%;
     max-width: 30px;
     max-height: 30px;
   }
