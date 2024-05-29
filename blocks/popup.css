@@ -106,12 +106,30 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
+.popup__btn_disabled {
+  background-color: #fff;
+  color: #ccc;
+  border: 1px solid #ccc;
+  pointer-events: none;
+}
+
 .popup__input {
   width: 358px;
   border-top: 1px;
   border-left: 0;
   border-right: 0;
   border-color: #c4c4c4;
+}
+
+.popup__input_type_error {
+  border-bottom: 1px solid red;
+}
+.popup__error_visible {
+  color: #ff0000;
+  font-family: "Inter regular";
+  font-size: 12px;
+  max-width: 360px;
 }
 
 .popup__header {
