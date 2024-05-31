@@ -1,3 +1,4 @@
+const popup = document.querySelector(".popup");
 const popupProfile = document.querySelector("#popup-profile");
 const profileButton = document.querySelector(".profile__info-edit");
 const popupCards = document.querySelector("#popup-addcard");
@@ -83,12 +84,29 @@ initialCards.forEach(function (element) {
   cardArea.append(newCard);
 });
 
-function handleOpenProfile(evt) {
-  popupProfile.classList.add("popup__open");
+function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    handleCloseProfile();
+    handleCloseAddCards();
+  }
+}
+
+function handleClickOut(evt) {
+  if (evt.target.className === "popup__overlay") {
+    handleCloseProfile();
+    handleCloseAddCards();
+  }
+}
+
+function handleOpenProfile() {
+  popup.classList.add("popup__open");
+  document.addEventListener("keydown", (evt) => {
+    handleEscapeKey(evt);
+  });
 }
 
 function handleCloseProfile() {
-  popupProfile.classList.remove("popup__open");
+  popup.classList.remove("popup__open");
 }
 
 function handleOpenAddCards() {
@@ -102,6 +120,9 @@ function handlecloseImage() {
   popupImage.classList.remove("popup__image-open");
 }
 
+inputName.value = profileName.textContent;
+inputRole.value = profileRole.textContent;
+
 profileButton.addEventListener("click", handleOpenProfile);
 
 profileCloseButton.addEventListener("click", handleCloseProfile);
@@ -111,6 +132,10 @@ openCardForm.addEventListener("click", handleOpenAddCards);
 cardFormCloseButton.addEventListener("click", handleCloseAddCards);
 
 imageCloseButton.addEventListener("click", handlecloseImage);
+
+popupCards.addEventListener("click", handleClickOut);
+
+popup.addEventListener("click", handleClickOut);
 
 formProfile.addEventListener("submit", function (evt) {
   evt.preventDefault();
