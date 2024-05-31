@@ -145,7 +145,7 @@
 .popup__input_type_error {
   border-bottom: 1px solid red;
 }
-.popup__error_visible {
+.popup__error-visible {
   color: #ff0000;
   font-family: "Inter regular";
   font-size: 12px;
@@ -249,5 +249,8 @@
     top: 7%;
     max-width: 30px;
     max-height: 30px;
+  }
+  .popup__error-visible {
+    max-width: 150px;
   }
 }
