@@ -86,6 +86,7 @@ initialCards.forEach(function (element) {
 
 function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
+    handlecloseImage();
     handleCloseProfile();
     handleCloseAddCards();
   }
@@ -95,6 +96,7 @@ function handleClickOut(evt) {
   if (evt.target.className === "popup__overlay") {
     handleCloseProfile();
     handleCloseAddCards();
+    handlecloseImage();
   }
 }
 
@@ -136,6 +138,8 @@ imageCloseButton.addEventListener("click", handlecloseImage);
 popupCards.addEventListener("click", handleClickOut);
 
 popup.addEventListener("click", handleClickOut);
+
+popupImage.addEventListener("click", handleClickOut);
 
 formProfile.addEventListener("submit", function (evt) {
   evt.preventDefault();
