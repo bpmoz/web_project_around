@@ -36,7 +36,7 @@ export const inputRole = document.querySelector("#input-role");
 export const cardTitle = document.querySelector(".element__title");
 export const inputCardTitle = document.querySelector("#input-title-card");
 export const inputCardImage = document.querySelector("#input-link-card");
-export const formProfile = document.querySelector("#profile-form");
+
 export const formCards = document.querySelector("#form-addcard");
 export const profileCloseButton = document.querySelector(".popup__close-icon");
 export const cardFormCloseButton = document.querySelector("#popup-close");

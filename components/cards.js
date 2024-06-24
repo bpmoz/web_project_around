@@ -10,7 +10,7 @@ export default class Card {
     return template.cloneNode(true).content.querySelector(".element");
   }
 
-  setProperties() {
+  _setProperties() {
     this._cardImage = this._card.querySelector(".element__image");
     this._cardTitle = this._card.querySelector(".element__title");
     this._btnDelete = this._card.querySelector(".element__button");
@@ -19,26 +19,26 @@ export default class Card {
     this._cardTitle.textContent = this._name;
   }
 
-  handleLike() {
+  _handleLike() {
     this._btnLike.classList.toggle("element__title-button-active");
   }
 
-  handleRemove() {
+  _handleRemove() {
     this._card.remove();
   }
 
-  setEventListeners() {
+  _setEventListeners() {
     this._btnLike.addEventListener("click", () => {
-      this.handleLike();
+      this._handleLike();
     });
     this._btnDelete.addEventListener("click", () => {
-      this.handleRemove();
+      this._handleRemove();
     });
   }
 
   generateCard() {
-    this.setProperties();
-    this.setEventListeners();
+    this._setProperties();
+    this._setEventListeners();
 
     return this._card;
   }
