@@ -1,69 +1,74 @@
 export default class FormValidator {
-  constructor(settings, formElement) {
+  constructor(formElement, settings) {
+    this._settings = settings;
     this._formElement = formElement;
-    this.settings = settings;
+    console.log(settings);
+    console.log(formElement);
   }
 
-  _checkInputValidity() {
-    if (!inputElement.validity.valid) {
-      this._showInputError(
-        formElement,
-        inputElement,
-        inputElement.validationMessage,
-        this.settings
-      );
-    } else {
-      this._hideInputError(this._formElement, inputElement, this.settings);
-    }
-  }
-
-  _toggleButtonState() {
-    if (this._hasInvalidInput(this._inputList)) {
-      this.butttonElement.classList.add(this.settings.inactiveButtonClass);
-    } else {
-      this.butttonElement.classList.remove(this.settings.inactiveButtonClass);
-    }
-  }
-
-  _showInputError() {
-    this.errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`
-    );
-    inputElement.classList.add(this.settings.inputErrorClass);
-    this.errorElement.textContent = errorMessage;
-  }
-
-  _hideInputError() {
-    this.errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`
-    );
-    inputElement.classList.remove(this.settings.inputErrorClass);
-    this.errorElement.textContent = "";
-  }
-
-  _hasInvalidInput() {
-    return this._inputList.some((inputElement) => {
+  _hasInvalidInput(inputList) {
+    return inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
 
-  _setEventListeners() {
-    this._inputList = Array.from(
-      this._formElement.querySelectorAll(this.settings.inputSelector)
+  _toggleButtonState(buttonElement, inputList) {
+    if (this._hasInvalidInput(inputList)) {
+      buttonElement.classList.add(this._settings.inactiveButtonClass);
+      buttonElement.disabled = true;
+    } else {
+      buttonElement.classList.remove(this._settings.inactiveButtonClass);
+      buttonElement.disabled = false;
+    }
+  }
+
+  _showInputError(inputElement, errorMessage, formElement) {
+    this.errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+
+    inputElement.classList.add(this._settings.inputErrorClass);
+
+    this.errorElement.classList.add(settings.inputErrorMessageClass);
+    this.errorElement.textContent = errorMessage;
+  }
+
+  _hideInputError(inputElement, formElement) {
+    this.errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.remove(this._settings.inputErrorClass);
+    this.errorElement.classList.remove(".popup__error-visible");
+    this.errorElement.textContent = "";
+  }
+
+  _checkInputValidity(inputElement, formElement) {
+    if (!inputElement.validity.valid) {
+      this._showInputError(
+        inputElement,
+        inputElement.validationMessage,
+        formElement
+      );
+    } else {
+      this._hideInputError(inputElement, formElement);
+    }
+  }
+
+  _setEventListeners(formElement) {
+    let inputList = Array.from(
+      this._formElement.querySelectorAll(this._settings.inputSelector)
     );
-    this.butttonElement = this._formElement.querySelector(
-      this.settings.submitButtonSelector
+    let buttonElement = this._formElement.querySelector(
+      this._settings.submitButtonSelector
     );
-    toggleButtonState(_inputList, buttonElement, settings);
+
+    this._toggleButtonState(buttonElement, inputList);
+
     this._inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", function () {
-        checkInputValidity(_formElement, inputElement, settings);
-        toggleButtonState(_inputList, buttonElement, settings);
+      inputElement.addEventListener("input", () => {
+        this._checkInputValidity(inputElement, formElement);
+        this._toggleButtonState(buttonElement, inputList);
       });
     });
   }
 
   enableValidation() {
-    this._setEventListeners(this._formElement);
+    this._setEventListeners();
   }
 }

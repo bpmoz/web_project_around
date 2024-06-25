@@ -1,4 +1,4 @@
-import { template } from "../scripts/utils.js";
+const template = document.querySelector(".template__card");
 
 export default class Card {
   constructor(name, link) {
