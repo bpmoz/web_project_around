@@ -3,8 +3,8 @@ import {
   handleClosePopups,
   handleEscapeKey,
 } from "./utils.js";
-import Card from "../components/cards.js";
-import FormValidator from "../components/FormValidator.js";
+import Card from "./cards.js";
+import FormValidator from "./FormValidator.js";
 
 const popup = document.querySelector(".popup");
 const popupProfile = document.querySelector("#popup-profile");
@@ -99,10 +99,6 @@ cardFormCloseButton.addEventListener("click", () => {
 
 imageCloseButton.addEventListener("click", () => {
   handleClosePopups(popupImage);
-});
-
-popupImage.addEventListener("click", () => {
-  handleOpenImage(popupImage);
 });
 
 document.addEventListener("keydown", (evt) => {

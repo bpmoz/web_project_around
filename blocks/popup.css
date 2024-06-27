@@ -93,7 +93,7 @@
 
 .popup__image-title {
   position: fixed;
-  top: 85%;
+  top: 82%;
   left: 39%;
   z-index: 2;
 }
@@ -166,7 +166,12 @@
   color: #000000;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1500px) {
+  .popup__open {
+    top: 15%;
+    left: 37%;
+    position: absolute;
+  }
   .popup__image-title {
     position: absolute;
     top: 110%;
@@ -187,9 +192,9 @@
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1025px) {
   .popup__open {
-    top: 10%;
+    top: 15%;
     left: 20%;
     position: absolute;
   }
