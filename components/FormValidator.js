@@ -2,8 +2,6 @@ export default class FormValidator {
   constructor(formElement, settings) {
     this._settings = settings;
     this._formElement = formElement;
-    console.log(settings);
-    console.log(formElement);
   }
 
   _hasInvalidInput(inputList) {
@@ -22,19 +20,23 @@ export default class FormValidator {
     }
   }
 
-  _showInputError(inputElement, errorMessage, formElement) {
-    this.errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  _showInputError(inputElement, errorMessage, _formElement) {
+    this.errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
 
     inputElement.classList.add(this._settings.inputErrorClass);
 
-    this.errorElement.classList.add(settings.inputErrorMessageClass);
+    this.errorElement.classList.add(this._settings.inputErrorMessageClass);
     this.errorElement.textContent = errorMessage;
   }
 
-  _hideInputError(inputElement, formElement) {
-    this.errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  _hideInputError(inputElement, _formElement) {
+    this.errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
     inputElement.classList.remove(this._settings.inputErrorClass);
-    this.errorElement.classList.remove(".popup__error-visible");
+    this.errorElement.classList.remove(this._settings.errorClass);
     this.errorElement.textContent = "";
   }
 
@@ -60,7 +62,7 @@ export default class FormValidator {
 
     this._toggleButtonState(buttonElement, inputList);
 
-    this._inputList.forEach((inputElement) => {
+    inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement, formElement);
         this._toggleButtonState(buttonElement, inputList);
@@ -69,6 +71,14 @@ export default class FormValidator {
   }
 
   enableValidation() {
+    const formList = Array.from(
+      document.querySelectorAll(this._settings.formSelector)
+    );
+    formList.forEach((formElement) => {
+      formElement.addEventListener("submit", function (evt) {
+        evt.preventDefault();
+      });
+    });
     this._setEventListeners();
   }
 }

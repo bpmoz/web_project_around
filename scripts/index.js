@@ -2,7 +2,6 @@ import {
   handleOpenPopups,
   handleClosePopups,
   handleEscapeKey,
-  handleClickOut,
 } from "./utils.js";
 import Card from "../components/cards.js";
 import FormValidator from "../components/FormValidator.js";
@@ -25,7 +24,10 @@ const profileCloseButton = document.querySelector(".popup__close-icon");
 const cardFormCloseButton = popupCards.querySelector("#popup-close");
 const imageCloseButton = document.querySelector(".popup__close-icon-image");
 const cardArea = document.querySelector(".elements");
-const popupImage = document.querySelector("#popup-image");
+export const popupImage = document.querySelector("#popup-image");
+const elementImage = document.querySelector(".element__image");
+export const popupPhoto = popupImage.querySelector(".popup__image-full");
+export const popuptitle = popupImage.querySelector(".popup__image-title");
 
 const initialCards = [
   {
@@ -53,30 +55,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
 ];
-
-function cardGenerator(name, link) {
-  const card = template.cloneNode(true).content.querySelector(".element");
-  const cardImage = card.querySelector(".element__image");
-  const cardTitle = card.querySelector(".element__title");
-  const btnDelete = card.querySelector(".element__button");
-  const btnLike = card.querySelector(".element__title-button");
-  cardImage.src = link;
-  cardTitle.textContent = name;
-  cardImage.alt = name;
-
-  function handleRemoveCard() {
-    card.remove();
-  }
-
-  function handleLikeCard() {
-    btnLike.classList.toggle("element__title-button-active");
-  }
-
-  btnDelete.addEventListener("click", handleRemoveCard);
-  btnLike.addEventListener("click", handleLikeCard);
-
-  return card;
-}
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -123,6 +101,10 @@ imageCloseButton.addEventListener("click", () => {
   handleClosePopups(popupImage);
 });
 
+popupImage.addEventListener("click", () => {
+  handleOpenImage(popupImage);
+});
+
 document.addEventListener("keydown", (evt) => {
   handleEscapeKey(evt, popupProfile);
   handleEscapeKey(evt, popupCards);
@@ -132,29 +114,17 @@ document.addEventListener("keydown", (evt) => {
 formProfile.addEventListener("submit", handleProfileFormSubmit);
 formCards.addEventListener("submit", handlePopupCardsSubmit);
 
-/*function handleOpenImage() {
-  popupImage.classList.add("popup__open");
-  const popupPhoto = popupImage.querySelector(".popup__image-full");
-  const popuptitle = popupImage.querySelector(".popup__image-title");
-  popupPhoto.src = link;
-  popuptitle.textContent = name;
-  popupPhoto.alt = name;
-}*/
-
-const profileFormValidator = new FormValidator(popup, {
-  inputSelector: ".popup__form-input",
-  submitButtonSelector: ".popup__form-button",
-  inactiveButtonClass: "popup__form-button_disabled",
-  inputErrorClass: "popup__form-input_type_error",
-  inputErrorMessageClass: "popup__form-error-message",
-});
-profileFormValidator.enableValidation();
-
-/*export const settings = {
+const config = {
+  inputSelector: ".popup__input",
   formSelector: ".popup__form",
-  inputSelector: ".popup__form-input",
-  submitButtonSelector: ".popup__form-button",
-  inactiveButtonClass: "popup__form-button_disabled",
-  inputErrorClass: "popup__form-input_type_error",
-  inputErrorMessageClass: "popup__form-error-message",
-};*/
+  submitButtonSelector: ".popup__btn",
+  inactiveButtonClass: ".popup__btn_disabled",
+  inputErrorClass: ".popup__input_type_error",
+  inputErrorMessageClass: ".popup__error-visible",
+};
+
+const profileFormValidation = new FormValidator(popupProfile, config);
+profileFormValidation.enableValidation();
+
+const cardFormValidation = new FormValidator(popupCards, config);
+cardFormValidation.enableValidation();

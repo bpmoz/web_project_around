@@ -1,3 +1,6 @@
+import { handleOpenPopups } from "../scripts/utils.js";
+import { popupImage, popupPhoto, popuptitle } from "../scripts/index.js";
+
 const template = document.querySelector(".template__card");
 
 export default class Card {
@@ -33,6 +36,12 @@ export default class Card {
     });
     this._btnDelete.addEventListener("click", () => {
       this._handleRemove();
+    });
+    this._cardImage.addEventListener("click", () => {
+      handleOpenPopups(popupImage);
+      popupPhoto.src = this._link;
+      popuptitle.textContent = this._name;
+      popupPhoto.alt = this._name;
     });
   }
 

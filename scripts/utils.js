@@ -1,8 +1,14 @@
 export function handleOpenPopups(popup) {
+  popup
+    .querySelector(".popup__overlay")
+    .addEventListener("click", handleClickOut);
   popup.classList.add("popup__open");
 }
 
 export function handleClosePopups(popup) {
+  popup
+    .querySelector(".popup__overlay")
+    .removeEventListener("click", handleClickOut);
   popup.classList.remove("popup__open");
 }
 
@@ -13,8 +19,6 @@ export function handleEscapeKey(evt, popup) {
 }
 
 export function handleClickOut(evt) {
-  if (evt.target.className === "popup__overlay") {
-    console.log("es esto?");
-    handleClosePopups(evt.target);
-  }
+  const popup = evt.target.closest(".popup");
+  handleClosePopups(popup);
 }
