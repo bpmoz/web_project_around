@@ -56,6 +56,7 @@ const initialCards = [
   },
 ];
 
+// Forms
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
@@ -73,6 +74,10 @@ function handlePopupCardsSubmit(evt) {
   cardArea.prepend(newCard);
 }
 
+formProfile.addEventListener("submit", handleProfileFormSubmit);
+formCards.addEventListener("submit", handlePopupCardsSubmit);
+
+// Cards
 initialCards.forEach((element) => {
   const newCard = new Card(element.name, element.link).generateCard();
   cardArea.append(newCard);
@@ -80,6 +85,8 @@ initialCards.forEach((element) => {
 
 inputName.value = profileName.textContent;
 inputRole.value = profileRole.textContent;
+
+//Handle open and close forms and cards
 
 profileButton.addEventListener("click", () => {
   handleOpenPopups(popupProfile);
@@ -107,8 +114,7 @@ document.addEventListener("keydown", (evt) => {
   handleEscapeKey(evt, popupImage);
 });
 
-formProfile.addEventListener("submit", handleProfileFormSubmit);
-formCards.addEventListener("submit", handlePopupCardsSubmit);
+// Form Validations
 
 const config = {
   inputSelector: ".popup__input",
