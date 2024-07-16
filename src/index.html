@@ -10,16 +10,19 @@
       name="keywords"
       content="Beginners, project, Travels, Worldwide, Online"
     />
-    <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="page">
     <header class="header">
-      <img src="images/logo.svg" alt="page logo" class="header__logo" />
+      <img
+        src="<%=require('./images/logo.svg')%>"
+        alt="page logo"
+        class="header__logo"
+      />
     </header>
     <main class="content">
       <section class="profile">
         <img
-          src="images/Avatar.png"
+          src="<%=require('./images/Avatar.png')%>"
           alt="profile picture"
           class="profile__image"
         />
@@ -29,14 +32,14 @@
             <p class="profile__info-role" id="profile-role">Explorador</p>
           </div>
           <img
-            src="images/editbutton.svg"
+            src="<%= require('/src/images/editbutton.svg')%>"
             alt="edit button for profile"
             class="profile__info-edit"
           />
         </div>
 
         <img
-          src="images/Addbutton.png"
+          src="<%= require('images/Addbutton.png')%>"
           alt="add button"
           class="profile__button"
         />
@@ -44,12 +47,15 @@
       <section class="elements"></section>
       <template class="template__card"
         ><div class="element">
-          <img src="images/Trash.svg" class="element__button" />
-          <img class="element__image" src="." alt="" />
+          <img
+            src="<%=require ('/src/images/Trash.svg')%>"
+            class="element__button"
+          />
+          <img class="element__image" src=" " alt="" />
           <div class="element__info">
             <h3 class="element__title" id="title-name"></h3>
             <img
-              src="images/Group.svg"
+              src="<%=require ('images/Group.svg')%>"
               alt="Like button"
               class="element__title-button"
             />
@@ -71,7 +77,7 @@
           novalidate
         >
           <img
-            src="images/Closeicon.png"
+            src="<%=require ('./images/Closeicon.png')%>"
             alt="Close icon"
             class="popup__close-icon"
           />
@@ -114,7 +120,7 @@
         <div class="popup__overlay"></div>
         <form class="popup__form" id="form-addcard">
           <img
-            src="images/Closeicon.png"
+            src="<%=require ('./images/Closeicon.png')%>"
             alt="Close Icon"
             class="popup__close-icon"
             id="popup-close"
@@ -153,15 +159,14 @@
     <div class="popup" id="popup-image">
       <div class="popup__image-container">
         <img
-          src="images/Closeicon.png"
+          src="<%=require (./images/Closeicon.png)%>"
           alt="Close icon"
           class="popup__close-icon-image"
         />
         <div class="popup__overlay"></div>
-        <img src="." alt="" class="popup__image-full" />
+        <img src=" " alt="" class="popup__image-full" />
         <p class="popup__image-title"></p>
       </div>
     </div>
-    <script src="scripts/index.js" type="module"></script>
   </body>
 </html>

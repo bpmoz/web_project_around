@@ -1,5 +1,5 @@
 import { handleOpenPopups } from "./utils.js";
-import { popupImage, popupPhoto, popuptitle } from "./index.js";
+import { popupImage, popupPhoto, popuptitle } from "../src/index.js";
 
 const template = document.querySelector(".template__card");
 

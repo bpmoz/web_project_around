@@ -70,11 +70,11 @@
 }
 
 .element__title-button:active {
-  background-image: url("/images/Union.png");
+  background-image: url("/src/images/Union.png");
 }
 
 .element__title-button-active {
-  background-image: url("/images/Union.png");
+  background-image: url("/src/images/Union.png");
 }
 
 .element__button {

@@ -2,9 +2,10 @@ import {
   handleOpenPopups,
   handleClosePopups,
   handleEscapeKey,
-} from "./utils.js";
-import Card from "./cards.js";
-import FormValidator from "./FormValidator.js";
+} from "../scripts/utils.js";
+import Card from "../scripts/cards.js";
+import FormValidator from "../scripts/FormValidator.js";
+import "./styles/index.css";
 
 const popup = document.querySelector(".popup");
 const popupProfile = document.querySelector("#popup-profile");
