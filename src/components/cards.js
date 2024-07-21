@@ -1,13 +1,11 @@
-import { handleOpenPopups } from "./utils.js";
-import { popupImage, popupPhoto, popuptitle } from "../src/index.js";
-
 const template = document.querySelector(".template__card");
 
 export default class Card {
-  constructor(name, link) {
+  constructor(name, link, handleClickCard) {
     this._name = name;
     this._link = link;
     this._card = this.getTemplate();
+    this._handleClickCard = handleClickCard;
   }
   getTemplate() {
     return template.cloneNode(true).content.querySelector(".element");
@@ -38,10 +36,7 @@ export default class Card {
       this._handleRemove();
     });
     this._cardImage.addEventListener("click", () => {
-      handleOpenPopups(popupImage);
-      popupPhoto.src = this._link;
-      popuptitle.textContent = this._name;
-      popupPhoto.alt = this._name;
+      this._handleClickCard(this._link, this._name);
     });
   }
 

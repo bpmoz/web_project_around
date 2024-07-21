@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   devtool: "inline-source-map",
-  entry: { main: "./src/index.js" },
+  entry: { main: "./src/page/index.js" },
 
   output: {
     path: path.resolve(__dirname, "dist"),
