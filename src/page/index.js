@@ -13,14 +13,10 @@ import {
   profileRole,
   inputName,
   inputRole,
-  inputCardTitle,
-  inputCardImage,
   cardArea,
-  initialCards,
   config,
   profileAvatarContainer,
   profileAvatarBtn,
-  profileAvatarForm,
 } from "../components/utils.js";
 import PopupWithImage from "../components/popupwithimage.js";
 import Section from "../components/section.js";
@@ -75,28 +71,6 @@ api.getUserInfo().then((result) => {
   });
 });
 
-const popupPicture = new PopupWithImage("#popup-image");
-popupPicture.setEventListeners();
-
-const popupUser = new PopupWithForm("#popup-profile", (input) => {
-  api.editProfile(input).then((result) => {
-    userInfo.setUserInfo(result);
-    popupUser.close();
-  });
-});
-popupUser.setEventListeners();
-
-const popupAvatarProfile = new PopupWithForm(
-  "#popup-avatar-profile",
-  (inputs) => {
-    api.editAvatarProfile(inputs).then((result) => {
-      userInfo.setUserInfo(result);
-      popupAvatarProfile.close();
-    });
-  }
-);
-popupAvatarProfile.setEventListeners();
-
 const popupCard = new PopupWithForm("#popup-addcard", (input) => {
   api.addcards(input).then((result) => {
     const newCard = new Card(
@@ -119,6 +93,28 @@ const popupCard = new PopupWithForm("#popup-addcard", (input) => {
   });
 });
 popupCard.setEventListeners();
+
+const popupUser = new PopupWithForm("#popup-profile", (input) => {
+  api.editProfile(input).then((result) => {
+    userInfo.setUserInfo(result);
+    popupUser.close();
+  });
+});
+popupUser.setEventListeners();
+
+const popupAvatarProfile = new PopupWithForm(
+  "#popup-avatar-profile",
+  (inputs) => {
+    api.editAvatarProfile(inputs).then((result) => {
+      userInfo.setUserInfo(result);
+      popupAvatarProfile.close();
+    });
+  }
+);
+popupAvatarProfile.setEventListeners();
+
+const popupPicture = new PopupWithImage("#popup-image");
+popupPicture.setEventListeners();
 
 const popupWithConfirmation = new PopupWithConfirmation(
   "#popup-delete-confirmation",

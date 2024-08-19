@@ -38,8 +38,8 @@ export default class PopupWithForm extends Popup {
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._formButton.textContent = "Guardando...";
-      const closeOn = () => this.close();
-      this._handleFormSubmit(this.getInputValues(), closeOn);
+      const closeOnSave = () => this.close();
+      this._handleFormSubmit(this.getInputValues(), closeOnSave);
     });
   }
 }
