@@ -18,8 +18,9 @@ link git hub pages: https://bpmoz.github.io/web_project_around/
 
 ---
 
-Tripleten web_project_around
-English Translation:
+# Tripleten web_project_around
+
+## English Translation:
 
 For the construction of this project's mockup, we used flex properties, grid properties, CSS positioning properties, font downloading and connection through @font-face, Media Queries for responsive design in different resolutions, margins, HTML code, and CSS code.
 
