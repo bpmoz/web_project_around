@@ -66,6 +66,32 @@
   z-index: 2;
 }
 
+.popup__form-confirmation {
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 180px;
+  background-color: white;
+  background: #ffffff;
+  border-radius: 10px;
+  position: fixed;
+  z-index: 2;
+}
+
+.popup__form-avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  background: #ffffff;
+  border-radius: 10px;
+  position: fixed;
+  z-index: 2;
+}
+
 .popup__container {
   position: fixed;
   display: flex;
